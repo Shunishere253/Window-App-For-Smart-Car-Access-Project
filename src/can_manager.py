@@ -41,7 +41,7 @@ class CanManager:
                     self.on_log_update("log_can_connected", channel=self.channel)
                 except Exception:
                     self.on_log_update("log_can_board_missing", channel=self.channel)
-                    time.sleep(2)
+                    time.sleep(0.5)
                     continue
 
             # 2. Đã có kết nối -> Lắng nghe gói tin
@@ -62,7 +62,7 @@ class CanManager:
                         pass # Phớt lờ lỗi vì phần cứng đã mất
                 
                 self.can_bus = None # Xóa bus cũ để vòng lặp tự động kết nối lại
-                time.sleep(2)
+                time.sleep(0.5)
 
     def stop(self):
         """Đóng luồng và ngắt kết nối an toàn"""
